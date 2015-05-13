@@ -1,7 +1,49 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
 }
 
+a {
+	text-decoration: none;
+}
+
+h5 {
+	color: #fff;
+	font-size: 500%;
+	margin-top: 0;
+	padding-top: 1em;
+	padding-left: 3em;
+}
+.topnav {
+	margin: 0;
+	position: fixed;
+	background-color: #151515;
+	height: 11em;
+	width: 100%;
+	border-bottom: 5px solid #151515;
+	box-shadow: 0 0 20px #151515;
+	
+}
+
+.bottomnav {
+	padding: 10em 0 1em 0;
+	width: 20em;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+.nav {
+	color: #000000;
+	width: 10em;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 11em;
+}
+
+.nav a {
+	color: #000;
+	text-decoration: none;
+}
 .Democrat {
 	border: .15em solid #5882FA;
 }
@@ -19,41 +61,71 @@ body {
 	background-color: #F8E0E0;
 	transition: background-color .7s
 }
+
+
 .Independent {
 	border: .15em solid #848484;
 }
 
 .Independent:hover {
-	background-color: #F2F2F2;
+	background-color: #E6E6E6;
 	transition: background-color .7s
 }
 
+.cand_container {
+	padding-top: 11em;
+	width: 76em;
+	margin-left: 5em;
+	height: auto;
+}
 .candidate {
 	padding: 2em;
 	margin: 2em;
-	width: 30em;
+	width: 28em;
+	height: 7em;
 	display: inline-block;
 	color: #000;
 	border-radius: 1em;
 }
 
+.candidate img {
+	height: 7em;
+	vertical-align: 100%;
+}
+.cand_show {
+	width: 100em;
+	margin-left: 10em;
+	margin-top: 0;
+}
 .prof_pic {
 	width: 20em;
 	padding: 2em;
 }
 
 .pic_board {
+	display: inline-block;
 	background-color: #F5F6CE;
 	width: 24em;
+
+	padding: 0em;
 }
 
 .pic_text {
 	width: 20em;
 	padding: 0 2em 1em 2em;
 }
-
-.index_name {
-	display: inline;
-	vertical-align: 50%;
+.cand_info {
+	display: inline-block;
 	padding-left: 3em;
+	width: 30em;
 }
+.index_description {
+	display: inline-block;
+	padding-left: 3em;
+	vertical-align: top;
+}
+
+/*  ----------------------------------------------
+	Responsive design styles
+	---------------------------------------------- */
+

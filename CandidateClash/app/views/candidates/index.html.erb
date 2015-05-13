@@ -1,15 +1,25 @@
+<div class='topnav'>
+  <h5>Candidate Clash</h5>
+</div>
 
-<div class='candidates'>
-  
-<% @candidates.each do |politician| %>
-  <%= link_to candidates_show_path(:first_name => politician.first_name, :last_name => politician.last_name, :name_slug => politician.name_slug, :cid => politician.cid, :number_of_statements => 100, :photo_cred => politician.photo_cred) do %>
-    <div class='candidate <%=politician.party %>' id='<%= politician.name_slug %>'>
-      <img src='<%= politician.image_url %>' height="75">
-      <h1 class='index_name'><%=politician.full_name%></h1>
-      <div id='candidate_info'>
-        <%= politician.party %>
-      </div>
+<div class='cand_container'>
+  <div class='candidates'>
+    <% @candidates.each do |politician| %>
+      <div class='candidate'>
+        <%=link_to candidates_show_path(:first_name => politician.first_name, :last_name => politician.last_name, :name_slug => politician.name_slug, :cid => politician.cid, :number_of_statements => 100, :photo_cred => politician.photo_cred) do %>
+        <div class='candidate <%=politician.party %>' id='<%= politician.name_slug %>'>
+          <img class='index_pic' src='<%= politician.image_url %>'>
+          <div class='index_description'>
+            <h1 class='index_name'><%=politician.full_name%></h1>
+            <h2><%= politician.party %></h2>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-<% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class='bottomnav'>
+  <a href="http://ryanhirst.com/">RyanHirst.com</a>
 </div>
