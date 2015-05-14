@@ -30,25 +30,9 @@ class Candidate
       @contributions ||= {"response"=>{"industries"=>{"industry"=>[{"@attributes"=>{"industry_code"=>"", "industry_name"=>"No Contributions Available", "indivs"=>"", "pacs"=>"", "total"=>""}}]}}}
   end
 
-#  def finances
-#    @finances ||= JSON.parse(RestClient.get("http://api.nytimes.com/svc/elections/us/v3/finances/2016/president/candidates/{#{last_name}}[,#{first_name}] | committee-ID}[.json]?api-key={a0fae42f24ebb864e1f9fe068421139d:2:72004955}[&callback={callback-function}]"))
-#    rescue => e
-#      @finances = ["industries"]["industry"][i]["industry_name"]
-#      
-#  end
-
   def party
-    #@party = statements[0]["speaker"]["party"]["party"]
-    #rescue => e
-    #@party = "none"
     i=0
-
     while statements[i]["speaker"]["name_slug"] != name_slug && i < 5 do
-        
-        puts @party
-        puts name_slug
-        puts statements[i]["speaker"]["name_slug"]
-        puts statements[i]["speaker"]["party"]["party"]
         i+=1
     end
     @party = statements[i]["speaker"]["party"]["party"]
@@ -76,9 +60,7 @@ class Candidate
         end
       end
     end
-    puts @credability
     @credability /= (4 * statement_count) 
-    puts @credability
     @credability *= 100
   end
 

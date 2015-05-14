@@ -1,11 +1,10 @@
 <div class='topnav'>
   <h5>Candidate Clash</h5>
 </div>
-
 <div class='nav'>
-  <p><%= link_to 'return to candidates', candidates_index_path %></p>
+  <p><%= link_to "return to candidates", candidates_index_path %></p>
 </div>
-<div class="cand_show">
+<div class='cand_show'>
   <h1><%= @candidate.full_name %></h1>
   <h2><%= @candidate.party %></h2>
 	<div class='pic_board'>
@@ -15,9 +14,8 @@
 	<div class='cand_info'>
 		<h2><a href="http://www.politifact.com/">Politifact </a><%= "Credability Rating: %.2f %" % @candidate.credability %></h2>
 		<h2>Top Supporting Industries</h2>
-		<h3>Information gathered from <a href="https://www.opensecrets.org/">opensecrets.org</a><h3>
+		<h3>Information gathered from <a href="https://www.opensecrets.org/">opensecrets.org</a></h3>
 		<ul>
-			<%# for i in 0..3 %>
 		  <% @candidate.contributions["response"]["industries"]["industry"].each do |industry| %>
 				<li><%= industry["@attributes"]["industry_name"]%></li>
 		  <% end %>
