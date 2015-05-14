@@ -7,6 +7,7 @@
 </div>
 <div class="cand_show">
   <h1><%= @candidate.full_name %></h1>
+  <h2><%= @candidate.party %></h2>
 	<div class='pic_board'>
 	  <img class='prof_pic' src='<%= @candidate.image_url %>'>
 	  <p class='pic_text'><%= @candidate.photo_cred.html_safe %></p>

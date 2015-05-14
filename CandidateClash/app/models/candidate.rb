@@ -38,32 +38,46 @@ class Candidate
 #  end
 
   def party
-    @party = statements[0]["speaker"]["party"]["party"]
-  rescue => e
-    @pary = "none"
+    #@party = statements[0]["speaker"]["party"]["party"]
+    #rescue => e
+    #@party = "none"
+    i=0
+
+    while statements[i]["speaker"]["name_slug"] != name_slug && i < 5 do
+        
+        puts @party
+        puts name_slug
+        puts statements[i]["speaker"]["name_slug"]
+        puts statements[i]["speaker"]["party"]["party"]
+        i+=1
+    end
+    @party = statements[i]["speaker"]["party"]["party"]
   end
 
   def credability
     @credability = 0.0
-
+    statement_count = 0
     statements.each do |statement|
-      ruling = statement["ruling"]["ruling_slug"]
-      puts ruling
-      case ruling
-        when "true"
-          @credability +=4
-        when "mostly-true"
-          @credability +=3
-        when "half-true"
-          @credability +=2
-        when "barely-true"
-          @credability +=1
-        when "false"
-          @credability +=0
+      if name_slug === statement["speaker"]["name_slug"]
+        statement_count += 1
+        ruling = statement["ruling"]["ruling_slug"]
+        puts ruling
+        case ruling
+          when "true"
+            @credability +=4
+          when "mostly-true"
+            @credability +=3
+          when "half-true"
+            @credability +=2
+          when "barely-true"
+            @credability +=1
+          when "false"
+            @credability +=0
+        end
       end
     end
     puts @credability
-    @credability /= (4 * statements.size) 
+    @credability /= (4 * statement_count) 
     puts @credability
     @credability *= 100
   end
